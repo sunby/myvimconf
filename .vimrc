@@ -4,6 +4,10 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
+
 if has('termguicolors')
     set termguicolors
 endif
@@ -36,12 +40,21 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'mattn/vim-lsp-settings'
 
+"Plug 'Shougo/ddc.vim'
+"Plug 'shun/ddc-vim-lsp'
+
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'sainnhe/everforest'
 Plug 'rhysd/vim-go-impl'
+
+Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
+Plug 'mattn/vim-goimports'
+
+Plug 'andymass/vim-matchup'
 
 call plug#end()
 
@@ -62,6 +75,7 @@ set updatetime=5
 set incsearch
 set ignorecase
 set hlsearch
+set clipboard=unnamed
 
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -204,4 +218,5 @@ let g:lsp_log_file = expand('~/vim-lsp.log')
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 
